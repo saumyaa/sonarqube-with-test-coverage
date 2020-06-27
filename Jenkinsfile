@@ -2,6 +2,18 @@ pipeline {
    agent any
 
 	stages {
+		stage('Sonar Scan'){
+			steps{
+				git 'https://github.com/kmayer10/liquor-shop-demo.git'
+				bat "mvn clean test sonar:sonar"
+			}
+		}
+		stage('OWASP DC Scan'){
+			steps{
+				git 'https://github.com/kmayer10/liquor-shop-demo.git'
+				bat "mvn clean install"
+			}
+		}
 		stage('Complile & Package') {
 			steps {
 				// Get some code from a GitHub repository
@@ -20,22 +32,6 @@ pipeline {
 				success {
 					// junit '**/target/surefire-reports/TEST-*.xml'
 					archiveArtifacts 'target/*.war'
-				}
-			}
-		}
-		stage('Static Scan'){
-			parallel{
-				stage('Sonar Scan'){
-					steps{
-						git 'https://github.com/kmayer10/liquor-shop-demo.git'
-						bat "mvn clean test sonar:sonar"
-					}
-				}
-				stage('OWASP DC Scan'){
-					steps{
-						git 'https://github.com/kmayer10/liquor-shop-demo.git'
-						bat "mvn clean install"
-					}
 				}
 			}
 		}
