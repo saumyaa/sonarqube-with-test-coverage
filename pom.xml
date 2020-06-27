@@ -7,6 +7,14 @@
   <version>1.0</version>
   <name>Epsilon Training Maven Webapp</name>
   <url>https://thinknyx.com</url>
+	
+  <properties>
+	<sonar.projectKey>kmayer10_liquor-shop-demo</sonar.projectKey>
+  	<sonar.organization>kmayer10</sonar.organization>
+  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  	<sonar.login>faff74d8cb559ee0ed1500446f12b3918db42332</sonar.login>
+  </properties>
+	
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
