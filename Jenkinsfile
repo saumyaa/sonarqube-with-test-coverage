@@ -23,7 +23,7 @@ pipeline {
 				}
 			}
 		}
-		Stage('Static Scan'){
+		stage('Static Scan'){
 			parallel{
 				stage('Sonar Scan'){
 					steps{
