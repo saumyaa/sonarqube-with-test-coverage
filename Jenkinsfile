@@ -23,10 +23,11 @@ pipeline {
 				}
 			}
 		}
-		Stage{'Static Scan'){
+		Stage('Static Scan'){
 			parallel{
 				stage('Sonar Scan'){
 					steps{
+						git 'https://github.com/kmayer10/liquor-shop-demo.git'
 						bat "mvn clean test sonar:sonar"
 					}
 				}
