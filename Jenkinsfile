@@ -34,7 +34,7 @@ pipeline {
 				stage('OWASP DC Scan'){
 					steps{
 						git 'https://github.com/kmayer10/liquor-shop-demo.git'
-						bat "mvn clean test sonar:sonar"
+						bat "mvn clean install"
 					}
 				}
 			}
