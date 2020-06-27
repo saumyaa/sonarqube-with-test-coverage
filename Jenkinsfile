@@ -2,7 +2,7 @@ pipeline {
    agent any
 
    stages {
-      stage('Build') {
+      stage('Complile & Package') {
          steps {
             // Get some code from a GitHub repository
             git 'https://github.com/kmayer10/liquor-shop-demo.git'
@@ -20,6 +20,15 @@ pipeline {
             success {
                // junit '**/target/surefire-reports/TEST-*.xml'
                archiveArtifacts 'target/*.war'
+            }
+         }
+      }
+      stage('scan') {
+         parallel{
+            stage('Sonar Scan'){
+               steps{
+                  bat "mvn clean sonar:sonar"
+               }
             }
          }
       }
