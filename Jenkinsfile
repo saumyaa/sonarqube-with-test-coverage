@@ -23,12 +23,14 @@ pipeline {
 				}
 			}
 		}
-		parallel{
-			stage('Sonar Scan'){
-				steps{
-					bat "mvn clean test sonar:sonar"
+		Stage{'Static Scan'){
+			parallel{
+				stage('Sonar Scan'){
+					steps{
+						bat "mvn clean test sonar:sonar"
+					}
 				}
 			}
 		}
-    }
+	}
 }
