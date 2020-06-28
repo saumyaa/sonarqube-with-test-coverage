@@ -5,7 +5,7 @@
   <artifactId>liquorshop</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
-  <name>Demo WebApp</name>
+  <name>Liquor Shop Demo</name>
   <url>https://thinknyx.com</url>
 	
   <properties>
