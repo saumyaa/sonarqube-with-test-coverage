@@ -4,7 +4,7 @@
   <groupId>com.thinknyx.demo</groupId>
   <artifactId>liquorshop</artifactId>
   <packaging>war</packaging>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>Liquor Shop Demo</name>
   <url>https://thinknyx.com</url>
 	
