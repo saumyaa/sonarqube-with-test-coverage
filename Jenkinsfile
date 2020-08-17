@@ -5,13 +5,13 @@ pipeline {
 		stage('Sonar Scan'){
 			steps{
 				git 'https://github.com/kmayer10/liquor-shop-demo.git'
-				bat "mvn clean test sonar:sonar"
+				sh "mvn clean test sonar:sonar"
 			}
 		}
 		stage('OWASP DC Scan'){
 			steps{
 				git 'https://github.com/kmayer10/liquor-shop-demo.git'
-				bat "mvn clean install"
+				sh "mvn clean install"
 			}
 		}
 		stage('Complile & Package') {
@@ -20,10 +20,10 @@ pipeline {
 				git 'https://github.com/kmayer10/liquor-shop-demo.git'
 	
 				// Run Maven on a Unix agent.
-				//sh "mvn -Dmaven.test.failure.ignore=true clean package"
+				sh "mvn -Dmaven.test.failure.ignore=true clean package"
 	
 				// To run Maven on a Windows agent, use
-				bat "mvn -Dmaven.test.failure.ignore=true clean package"
+				//bat "mvn -Dmaven.test.failure.ignore=true clean package"
 			}
 	
 			post {
