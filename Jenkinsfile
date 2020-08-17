@@ -35,5 +35,10 @@ pipeline {
 				}
 			}
 		}
+		stage('Scan Base Tomcat Image'){
+			steps{
+				sh label: '', script: 'trivy image kulbhushanmayer/ls-demo:2.0'
+			}
+		}
 	}
 }
