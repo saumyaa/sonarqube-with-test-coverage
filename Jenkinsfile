@@ -37,7 +37,8 @@ pipeline {
 		}
 		stage('Scan Base Tomcat Image'){
 			steps{
-				sh label: '', script: 'trivy image kulbhushanmayer/ls-demo:2.0'
+				sh label: '', script: 'trivy image --format template --template "@junit.tpl" -o junit-report.xml kulbhushanmayer/ls-demo:2.0'
+				junit allowEmptyResults: true, testResults: 'junit-report.xml'
 			}
 		}
 	}
